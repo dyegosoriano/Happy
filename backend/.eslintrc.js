@@ -2,33 +2,35 @@ module.exports = {
   env: {
     es6: true,
     node: true,
-    jest: true
+    jest: true,
   },
   extends: [
-    'standard'
+    'standard',
+    'plugin:@typescript-eslint/recommended',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: 'module'
+    sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint'
-  ],
+  plugins: ['@typescript-eslint', 'prettier'],
   rules: {
+    'prettier/prettier': 'error',
     'class-methods-use-this': 'off',
     // evitando os erros de importação de arquivos typescript
     'import/extensions': [
       'error',
       'ignorePackages',
       {
-        ts: 'never'
-      }
-    ]
+        ts: 'never',
+      },
+    ],
   },
   settings: {
     'import/resolver': {
-      typescript: {}
-    }
-  }
+      typescript: {},
+    },
+  },
 }
