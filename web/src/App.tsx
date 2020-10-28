@@ -1,14 +1,13 @@
 import React from 'react'
-
-import Landing from './pages/Landing'
+import Routes from './routes'
 
 import GlobalStyle from './styles/global'
 
 export default function App() {
   return (
     <>
-      <Landing />
       <GlobalStyle />
+      <Routes />
     </>
   )
 }
