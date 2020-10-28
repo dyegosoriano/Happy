@@ -42,11 +42,17 @@ export const Container = styled.div`
     }
   }
 
+  .leaflet-container {
+    z-index: 5;
+  }
+
   .create-orphanage {
     width: 64px;
     height: 64px;
     background: #15c3d6;
     border-radius: 20px;
+
+    z-index: 10;
 
     position: absolute;
     right: 40px;
