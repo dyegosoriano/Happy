@@ -17,6 +17,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
+    camelcase: 'off',
     'prettier/prettier': 'error',
     'class-methods-use-this': 'off',
     // evitando os erros de importação de arquivos typescript
