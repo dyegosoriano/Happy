@@ -2,7 +2,10 @@ import express from 'express'
 
 import { cathAll, notFound } from './app/middleware/errorHandling'
 import logRequest from './app/middleware/logRequest'
+
 import routes from './routes'
+
+import './database'
 
 class App {
   server = express.application
