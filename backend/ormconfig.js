@@ -5,7 +5,7 @@ module.exports = {
   username: 'postgres',
   password: 'docker',
   database: 'happy',
-  synchronize: true,
+  synchronize: false,
   logging: false,
   migrations: ['src/app/database/migration/**/*.{js,ts}'],
   subscribers: ['src/app/subscriber/**/*.{js,ts}'],
