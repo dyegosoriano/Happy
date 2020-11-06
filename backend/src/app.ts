@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import express from 'express'
 
-import { cathAll, notFound } from './app/middleware/errorHandling'
+import errorHandling from './app/middleware/errorHandling'
 import logRequest from './app/middleware/logRequest'
 
 import routes from './routes'
@@ -33,8 +33,8 @@ class App {
   }
 
   erros(): void {
-    this.server.use(notFound)
-    this.server.use(cathAll)
+    this.server.use(errorHandling.notFound)
+    this.server.use(errorHandling.cathAll)
   }
 }
 

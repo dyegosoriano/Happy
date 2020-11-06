@@ -1,5 +1,7 @@
-const logRequest = (request, response, next) => {
-  const { method, url } = request
+import { NextFunction, Request, Response } from 'express'
+
+const logRequest = (req: Request, resp: Response, next: NextFunction): void => {
+  const { method, url } = req
 
   const logLabel = `[${method.toUpperCase()}] ${url}`
 
