@@ -15,6 +15,9 @@ class OrphanageController {
       name,
     } = req.body
 
+    const requestImages = req.files as Express.Multer.File[]
+    const images = requestImages.map(img => ({ path: img.filename }))
+
     try {
       const repoOrphanage = getRepository(Orphanage)
 
@@ -24,6 +27,7 @@ class OrphanageController {
         instructions,
         longitude,
         latitude,
+        images,
         about,
         name,
       })
@@ -44,7 +48,7 @@ class OrphanageController {
     try {
       const repoOrphanage = getRepository(Orphanage)
 
-      const orphanages = await repoOrphanage.find()
+      const orphanages = await repoOrphanage.find({ relations: ['images'] })
 
       return res.json(orphanages)
     } catch (error) {
@@ -62,7 +66,9 @@ class OrphanageController {
     try {
       const repoOrphanage = getRepository(Orphanage)
 
-      const orphanage = await repoOrphanage.findOneOrFail(id)
+      const orphanage = await repoOrphanage.findOneOrFail(id, {
+        relations: ['images'],
+      })
 
       return res.json(orphanage)
     } catch (error) {
