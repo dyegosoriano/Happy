@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import { getRepository } from 'typeorm'
 
+import orphanageView from '../views/orphanages_view'
 import Orphanage from '@models/Orphanage'
 
 class OrphanageController {
@@ -50,7 +51,7 @@ class OrphanageController {
 
       const orphanages = await repoOrphanage.find({ relations: ['images'] })
 
-      return res.json(orphanages)
+      return res.json(orphanageView.renderMany(orphanages))
     } catch (error) {
       console.log(`error.message >>> ${error.message} <<<`)
 
@@ -70,7 +71,7 @@ class OrphanageController {
         relations: ['images'],
       })
 
-      return res.json(orphanage)
+      return res.json(orphanageView.render(orphanage))
     } catch (error) {
       console.log(`error.message >>> ${error.message} <<<`)
 

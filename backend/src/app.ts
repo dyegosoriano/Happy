@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 import express from 'express'
 
 import { cathAll, notFound } from './app/middleware/errorHandling'
@@ -24,6 +25,10 @@ class App {
   }
 
   routes(): void {
+    this.server.use(
+      '/uploads',
+      express.static(resolve(__dirname, '..', 'uploads')),
+    )
     this.server.use(routes)
   }
 
