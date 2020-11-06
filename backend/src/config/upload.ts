@@ -6,7 +6,7 @@ export default {
     destination: resolve(__dirname, '..', '..', 'uploads'),
 
     filename: (request, file, callback) => {
-      const filename = `${Date.now()}-${file.originalname}`
+      const filename = `${Date.now()}-${file.originalname.split(' ').join('_')}`
 
       callback(null, filename)
     },
