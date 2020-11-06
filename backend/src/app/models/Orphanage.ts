@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity('orphanages')
-export default class Orphanages {
+export default class Orphanage {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
@@ -19,6 +19,9 @@ export default class Orphanages {
 
   @Column('varchar')
   instructions: string
+
+  @Column('varchar')
+  opening_hours: string
 
   @Column({ default: false })
   open_on_weekends: boolean

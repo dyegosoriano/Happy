@@ -7,9 +7,8 @@ module.exports = {
   database: 'happy',
   synchronize: false,
   logging: false,
-  migrations: ['src/app/database/migration/**/*.{js,ts}'],
-  subscribers: ['src/app/subscriber/**/*.{js,ts}'],
-  entities: ['src/app/models/**/*.{js,ts}'],
+  migrations: ['src/database/migrations/*.{js,ts}'],
+  entities: ['src/app/models/*.{js,ts}'],
   cli: {
     migrationsDir: [`src/database/migrations/`],
     entitiesDir: [`src/app/models/`],

@@ -1,12 +1,13 @@
 import { Request, Response } from 'express'
 import { getRepository } from 'typeorm'
 
-import Orphanages from '@models/Orphanages'
+import Orphanage from '@models/Orphanage'
 
 class OrphanageController {
   async store(req: Request, res: Response) {
     const {
       open_on_weekends,
+      opening_hours,
       instructions,
       longitude,
       latitude,
@@ -15,10 +16,11 @@ class OrphanageController {
     } = req.body
 
     try {
-      const repoOrphanage = getRepository(Orphanages)
+      const repoOrphanage = getRepository(Orphanage)
 
       const orphanage = repoOrphanage.create({
         open_on_weekends,
+        opening_hours,
         instructions,
         longitude,
         latitude,
@@ -40,7 +42,7 @@ class OrphanageController {
 
   async index(req: Request, res: Response) {
     try {
-      const repoOrphanage = getRepository(Orphanages)
+      const repoOrphanage = getRepository(Orphanage)
 
       const orphanages = await repoOrphanage.find()
 
@@ -58,7 +60,7 @@ class OrphanageController {
     const { id } = req.params
 
     try {
-      const repoOrphanage = getRepository(Orphanages)
+      const repoOrphanage = getRepository(Orphanage)
 
       const orphanage = await repoOrphanage.findOneOrFail(id)
 
