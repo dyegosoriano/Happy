@@ -46,6 +46,41 @@ export const Container = styled.div`
     z-index: 5;
   }
 
+  .map-popup {
+    .leaflet-popup-tip-container {
+      display: none;
+    }
+
+    .leaflet-popup-content-wrapper {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      box-shadow: none;
+
+      .leaflet-popup-content {
+        margin: 8px 12px;
+        font-weight: bold;
+        font-size: 20px;
+        color: #0089a5;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+          width: 40px;
+          height: 40px;
+          background: #15c3d6;
+          box-shadow: 17.2868px, 27.6589px, rgba(23, 142, 166, 0.16);
+          border-radius: 12px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+
   .create-orphanage {
     width: 64px;
     height: 64px;
