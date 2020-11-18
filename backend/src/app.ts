@@ -1,5 +1,6 @@
 import { resolve } from 'path'
 import express from 'express'
+import cors from 'cors'
 
 import errorHandling from './app/middleware/errorHandling'
 import logRequest from './app/middleware/logRequest'
@@ -20,6 +21,7 @@ class App {
   }
 
   middlewares(): void {
+    this.server.use(cors())
     this.server.use(express.json())
     this.server.use(logRequest)
   }
