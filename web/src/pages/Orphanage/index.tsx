@@ -32,6 +32,7 @@ interface OrphanageParams {
 const Orphanage: React.FC = () => {
   const params = useParams() as OrphanageParams
   const [orphanage, setOrphanage] = useState<Orphanage>()
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
 
   useEffect(() => {
     async function getOrphanage() {
@@ -55,12 +56,20 @@ const Orphanage: React.FC = () => {
 
       <main>
         <div className="orphanage-details">
-          <img src={orphanage.images[0].url} alt={orphanage.name} />
+          <img
+            src={orphanage.images[activeImageIndex].url}
+            alt={orphanage.name}
+          />
 
           <div className="images">
-            {orphanage.images.map(image => (
-              <button key={image.id} className="active" type="button">
-                <img src={image.url} alt={orphanage.name} />
+            {orphanage.images.map((image, index) => (
+              <button
+                className={activeImageIndex === index ? 'active' : ''}
+                onClick={() => setActiveImageIndex(index)}
+                key={image.id}
+                type="button"
+              >
+                <img alt={orphanage.name} src={image.url} />
               </button>
             ))}
           </div>
