@@ -11,7 +11,7 @@ export const Container = styled.div`
       width: 700px;
       margin: 64px auto;
 
-      background: #ffffff;
+      background: #fff;
       border: 1px solid #d3e2e5;
       border-radius: 20px;
 
@@ -125,23 +125,21 @@ export const Container = styled.div`
           }
 
           div.hour {
-            background: linear-gradient(
-              149.97deg,
-              #e6f7fb 8.13%,
-              #ffffff 92.67%
-            );
+            background: linear-gradient(149.97deg, #e6f7fb 8.13%, #fff 92.67%);
             border: 1px solid #b3dae2;
             color: #5c8599;
           }
 
           div.open-on-weekends {
-            background: linear-gradient(
-              154.16deg,
-              #edfff6 7.85%,
-              #ffffff 91.03%
-            );
+            background: linear-gradient(154.16deg, #edfff6 7.85%, #fff 91.03%);
             border: 1px solid #a1e9c5;
             color: #37c77f;
+          }
+
+          div.dont-open {
+            background: linear-gradient(154.16deg, #fdf 7.85%, #fff 91.03%);
+            border: 1px solid #ffbcd4;
+            color: #ff669d;
           }
         }
 
@@ -152,7 +150,7 @@ export const Container = styled.div`
           border-radius: 20px;
           border: 0;
           background: #3cdc8c;
-          color: #ffffff;
+          color: #fff;
           font-weight: 800;
 
           display: flex;
