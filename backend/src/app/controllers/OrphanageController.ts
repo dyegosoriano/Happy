@@ -25,7 +25,7 @@ class OrphanageController {
 
     try {
       const data = {
-        open_on_weekends,
+        open_on_weekends: open_on_weekends === 'true',
         opening_hours,
         instructions,
         longitude,
