@@ -88,13 +88,34 @@ export const Container = styled.div`
         line-height: 28px;
       }
 
-      .new-image {
+      .images-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 16px;
+
+        .new-image {
+          height: 96px;
+          background: #f5f8fa;
+          border: 1px dashed #96d2f0;
+          border-radius: 20px;
+
+          cursor: pointer;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      img {
         width: 100%;
-        height: 64px;
-        background: #f5f8fa;
-        border: 1px dashed #96d2f0;
+        height: 96px;
         border-radius: 20px;
-        cursor: pointer;
+        object-fit: cover;
+      }
+
+      input[type='file'] {
+        display: none;
       }
 
       .button-select {
